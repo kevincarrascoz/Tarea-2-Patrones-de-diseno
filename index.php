@@ -21,51 +21,51 @@ function mostrarInfo($nombre, $objeto) {
 
 
 // creacion de producto: gelatina
-$productoGelatina = Producto::nuevoProducto("gelatina", 0.50, 250.0, 1000);
-mostrarInfo("Producto: Gelatina", $productoGelatina);
+$productoNuevo1 = Producto::nuevoProducto("gelatina", 0.50, 250.0, 1000);
+mostrarInfo("Producto: Gelatina", $productoNuevo1);
 
 // creacion de producto: mermelada
-$productoMermelada = Producto::nuevoProducto("mermelada", 0.5, 500.0, 1000);
-mostrarInfo("Producto: Mermelada", $productoMermelada);
+$productoNuevo2 = Producto::nuevoProducto("mermelada", 0.5, 500.0, 1000);
+mostrarInfo("Producto: Mermelada", $productoNuevo2);
 
 //creacion de producto: pan
-$productoPan = Producto::nuevoProducto("pan", 1.0, 100.0, 2500);
-mostrarInfo("Producto: Pan", $productoPan);
+$productoNuevo3 = Producto::nuevoProducto("pan", 1.0, 100.0, 2500);
+mostrarInfo("Producto: Pan", $productoNuevo3);
 
 // creacion de cliente
-$nuevoCliente = new Cliente("Antonio Salazar", "Calle Sincera 123");
-mostrarInfo("Cliente", $nuevoCliente);
+$nuevoCliente1 = new Cliente("Antonio Salazar", "Calle Sincera 123");
+mostrarInfo("Cliente", $nuevoCliente1);
 
 $orden = array (
     "pan" => 10,
     "gelatina" => 5
 );
-$nuevoPedido = $nuevoCliente->solicitar($orden);
-mostrarInfo("Pedido de cliente", $nuevoPedido, false);
+$nuevoPedido1 = $nuevoCliente1->solicitar($orden);
+mostrarInfo("Pedido de cliente", $nuevoPedido1, false);
 
 echo "<li>total a pagar pedido: ";
-echo $nuevoPedido->calcularTotal();
+echo $nuevoPedido1->calcularTotal();
 echo "</li>";
 
 // nuevo pago con cheque
-$nuevoCheque = new Cheque(2530,'Cheque1','Banco Estado');
-mostrarInfo("Cheque", $nuevoCheque);
+$nuevoCheque1 = new Cheque(2530,'Cheque1','Banco Estado');
+mostrarInfo("Cheque", $nuevoCheque1);
 
 //nuevo pago con efectivo
-$nuevoEfectivo = new Efectivo(1530,'CLP');
-mostrarInfo("Efectivo", $nuevoEfectivo);
+$nuevoEfectivo1 = new Efectivo(1530,'CLP');
+mostrarInfo("Efectivo", $nuevoEfectivo1);
 
 //nuevo pago con tarjeta
-$nuevoTarjeta = new Tarjeta(530, 241500,'06-20-2028','Mastercard');
-mostrarInfo("Tarjeta", $nuevoTarjeta);
+$nuevoTarjeta1 = new Tarjeta(530, 241500,'06-20-2028','Mastercard');
+mostrarInfo("Tarjeta", $nuevoTarjeta1);
 
 //autorizacion del pago con cheque
-$nuevoCheque->autorizar();
-mostrarInfo("Cheque", $nuevoCheque);
+$nuevoCheque1->autorizar();
+mostrarInfo("Cheque", $nuevoCheque1);
 
 //autorizacion del pago con tarjeta
-$nuevoTarjeta->autorizar();
-mostrarInfo("Tarjeta autorizada", $nuevoTarjeta);
+$nuevoTarjeta1->autorizar();
+mostrarInfo("Tarjeta autorizada", $nuevoTarjeta1);
 
 
 
