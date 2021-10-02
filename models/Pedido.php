@@ -2,15 +2,13 @@
 
 namespace models;
 
-require_once "Mostrable.php";
+require_once "Mostrar.php";
 require_once "DetalleOrden.php";
-use models\Mostrable;
+use models\Mostrar;
 use models\DetalleOrden;
 
-class Pedido implements Mostrable {
-    /**
-     * @var int cuando se realizo el pedido en unix timestamp
-     */
+class Pedido implements Mostrar {
+
     public $fecha;
 
     /**

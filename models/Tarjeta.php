@@ -5,21 +5,10 @@ require_once 'Pago.php';
   
 
 class Tarjeta extends Pago {
-    /**
-     * @var int
-     */
+
     public $numero;
-    /**
-     * @var string
-     */
     public $caducidad;
-    /**
-     * @var Tarjeta
-     */
     public $tipo;
-    /**
-     * @var boolean
-     */
     public $aprobado=false;
     
     /**

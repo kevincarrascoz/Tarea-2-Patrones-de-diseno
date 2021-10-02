@@ -2,7 +2,7 @@
 
 namespace models;
 
-require_once "Mostrable.php";
+require_once "Mostrar.php";
 use models\Mostrable;
 
 /**
@@ -12,22 +12,11 @@ use models\Mostrable;
  * un producto. De lo mas importante que guarda es la 
  * cantidad cotizada y el producto que se cotiza.
  */
-class DetalleOrden implements Mostrable {
-    /**
-     * @var int
-     */
+class DetalleOrden implements Mostrar {
+
     public $cantidad;
-    /**
-     * @var float
-     */
     public $precio;
-    /**
-     * @var float
-     */
     public $impuesto;
-    /**
-     * @var Producto
-     */
     public $producto;
 
     /**

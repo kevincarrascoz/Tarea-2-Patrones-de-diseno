@@ -1,13 +1,11 @@
 <?php
 namespace models;
 
-require_once "Mostrable.php";
-use models\Mostrable;
+require_once "Mostrar.php";
+use models\Mostrar;
 
-abstract class Pago implements Mostrable {
-    /**
-     * @var float
-     */
+abstract class Pago implements Mostrar {
+ 
     public $importe;    
 
         

@@ -3,17 +3,9 @@ namespace models;
 require_once 'Pago.php';
 
 class Cheque extends Pago {
-    /**
-     * @var string
-     */
+
     public $nombre;
-    /**
-     * @var string
-     */
     public $banco;
-    /**
-     * @var boolean
-     */
     public $aprobado = false;
 
     

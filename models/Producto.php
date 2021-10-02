@@ -2,31 +2,22 @@
 
 namespace models;
 
-require_once "Mostrable.php";
-use models\Mostrable;
+require_once "Mostrar.php";
+use models\Mostrar;
 
 /**
  * Producto
  * 
  * Representa un producto en stock.
  */
-class Producto implements Mostrable {
+class Producto implements Mostrar {
 
     static private $productos = array();
 
-    /**
-     * El nombre de este producto
-     * @var string
-     */
+ 
     public $producto;
     public $peso;
-    /**
-     * @var float
-     */
     public $precio;
-    /**
-     * @var int
-     */
     public $stock;
 
     /**

@@ -2,15 +2,15 @@
 
 namespace models;
 
-require_once "Mostrable.php";
-use models\Mostrable;
+require_once "Mostrar.php";
+use models\Mostrar;
 
 /**
  * Estados
  * 
  * Etapa en la que se encuentra un pedido
  */
-class Estados implements Mostrable {
+class Estados implements Mostrar {
 
     private static $_pendiente;
     private static $_pagado;

@@ -3,9 +3,7 @@ namespace models;
 require_once 'Pago.php';
 
 class Efectivo extends Pago {
-    /**
-     * @var string
-     */
+    
     public $tipoMoneda;
      
 

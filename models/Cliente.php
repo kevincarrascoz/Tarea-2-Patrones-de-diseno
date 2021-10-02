@@ -2,10 +2,10 @@
 
 namespace models;
 
-require_once "Mostrable.php";
+require_once "Mostrar.php";
 require_once "Pedido.php";
 require_once "Estados.php";
-use models\Mostrable;
+use models\Mostrar;
 use models\Pedido;
 use models\Estados;
 
@@ -14,19 +14,10 @@ use models\Estados;
  * 
  * Un cliente puede hacer pedidos, cotizar y pagar.
  */
-class Cliente implements Mostrable {
-    /**
-     * @var string
-     */
-    public $nombre;
-    /**
-     * @var string
-     */
-    public $direccion;
+class Cliente implements Mostrar {
 
-    /**
-     * @var array de Pedidos
-     */
+    public $nombre;
+    public $direccion;
     public $pedidos;
 
     /**
