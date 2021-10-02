@@ -2,12 +2,10 @@
 
 namespace models;
 
-require_once "Mostrar.php";
 require_once "DetalleOrden.php";
-use models\Mostrar;
 use models\DetalleOrden;
 
-class Pedido implements Mostrar {
+class Pedido {
 
     public $fecha;
 

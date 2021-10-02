@@ -1,10 +1,9 @@
 <?php
 namespace models;
 
-require_once "Mostrar.php";
-use models\Mostrar;
 
-abstract class Pago implements Mostrar {
+
+abstract class Pago {
  
     public $importe;    
 

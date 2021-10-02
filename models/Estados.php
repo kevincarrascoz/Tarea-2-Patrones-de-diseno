@@ -2,15 +2,14 @@
 
 namespace models;
 
-require_once "Mostrar.php";
-use models\Mostrar;
+
 
 /**
  * Estados
  * 
  * Etapa en la que se encuentra un pedido
  */
-class Estados implements Mostrar {
+class Estados {
 
     private static $_pendiente;
     private static $_pagado;

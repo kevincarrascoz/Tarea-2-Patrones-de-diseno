@@ -2,10 +2,8 @@
 
 namespace models;
 
-require_once "Mostrar.php";
 require_once "Pedido.php";
 require_once "Estados.php";
-use models\Mostrar;
 use models\Pedido;
 use models\Estados;
 
@@ -14,7 +12,7 @@ use models\Estados;
  * 
  * Un cliente puede hacer pedidos, cotizar y pagar.
  */
-class Cliente implements Mostrar {
+class Cliente {
 
     public $nombre;
     public $direccion;

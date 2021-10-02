@@ -2,8 +2,6 @@
 
 namespace models;
 
-require_once "Mostrar.php";
-use models\Mostrable;
 
 /**
  * DetalleOrden
@@ -12,7 +10,7 @@ use models\Mostrable;
  * un producto. De lo mas importante que guarda es la 
  * cantidad cotizada y el producto que se cotiza.
  */
-class DetalleOrden implements Mostrar {
+class DetalleOrden  {
 
     public $cantidad;
     public $precio;

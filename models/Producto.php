@@ -2,15 +2,13 @@
 
 namespace models;
 
-require_once "Mostrar.php";
-use models\Mostrar;
 
 /**
  * Producto
  * 
  * Representa un producto en stock.
  */
-class Producto implements Mostrar {
+class Producto {
 
     static private $productos = array();
 
