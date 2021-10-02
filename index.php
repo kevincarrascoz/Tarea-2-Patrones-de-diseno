@@ -12,13 +12,11 @@ use models\Efectivo;
 use models\Tarjeta;
 
 
-function mostrarInfo($nombre, $objeto, $br = true) {
+function mostrarInfo($nombre, $objeto) {
     echo $nombre;
     echo "<br />";
     echo $objeto->mostrar();
-    if($br) {
-        echo "<br />";
-    }
+    
 }
 
 
