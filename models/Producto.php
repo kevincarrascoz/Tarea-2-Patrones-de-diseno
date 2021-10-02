@@ -21,9 +21,9 @@ class Producto {
     /**
      * __construct
      * 
-     * @param string $producto nombre
-     * @param float $peso
-     * @param float $precio por unidad
+     * @param string $producto nombre del producto
+     * @param float $peso del producto
+     * @param float $precio por unidad de cada producto
      * @param int $stock_inicial
      */
     private function __construct($producto, $peso, $precio, $stock_inicial) {

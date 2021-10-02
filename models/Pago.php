@@ -27,9 +27,4 @@ abstract class Pago {
         return $this->importe;
     }
 
-        
-    abstract public function mostrar();
-
-    abstract public function serializar();
-
 }
