@@ -20,19 +20,19 @@ function mostrarInfo($nombre, $objeto) {
 }
 
 
-// instanciacion de producto: gelatina
+// creacion de producto: gelatina
 $productoGelatina = Producto::nuevoProducto("gelatina", 0.50, 250.0, 1000);
 mostrarInfo("Producto: Gelatina", $productoGelatina);
 
-// instanciacion de producto: mermelada
+// creacion de producto: mermelada
 $productoMermelada = Producto::nuevoProducto("mermelada", 0.5, 500.0, 1000);
 mostrarInfo("Producto: Mermelada", $productoMermelada);
 
-//instanciacion de producto: pan
+//creacion de producto: pan
 $productoPan = Producto::nuevoProducto("pan", 1.0, 100.0, 2500);
 mostrarInfo("Producto: Pan", $productoPan);
 
-// instanciacion de cliente
+// creacion de cliente
 $nuevoCliente = new Cliente("Antonio Salazar", "Calle Sincera 123");
 mostrarInfo("Cliente", $nuevoCliente);
 
@@ -47,23 +47,23 @@ echo "<li>total a pagar pedido: ";
 echo $nuevoPedido->calcularTotal();
 echo "</li>";
 
-/*instanciación de un nuevo pago con cheque*/ 
+// nuevo pago con cheque
 $nuevoCheque = new Cheque(2530,'Cheque1','Banco Estado');
 mostrarInfo("Cheque", $nuevoCheque);
 
-/*instanciación de un nuevo pago con efectivo*/ 
+//nuevo pago con efectivo
 $nuevoEfectivo = new Efectivo(1530,'CLP');
 mostrarInfo("Efectivo", $nuevoEfectivo);
 
-/*instanciación de un nuevo pago con tarjeta*/ 
-$nuevoTarjeta = new Tarjeta(530, 241500,'09-15-2020','Mastercard');
+//nuevo pago con tarjeta
+$nuevoTarjeta = new Tarjeta(530, 241500,'06-20-2028','Mastercard');
 mostrarInfo("Tarjeta", $nuevoTarjeta);
 
-/*autorizacion del pago con cheque */
+//autorizacion del pago con cheque
 $nuevoCheque->autorizar();
 mostrarInfo("Cheque", $nuevoCheque);
 
-/*autorizacion del pago con tarjeta */
+//autorizacion del pago con tarjeta
 $nuevoTarjeta->autorizar();
 mostrarInfo("Tarjeta autorizada", $nuevoTarjeta);
 

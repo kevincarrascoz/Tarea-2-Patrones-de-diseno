@@ -3,11 +3,6 @@
 namespace models;
 
 interface Mostrar {
-    /**
-     * mostrar
-     * @return string
-     */
-    public function mostrar();
 
     /**
      * serializar
