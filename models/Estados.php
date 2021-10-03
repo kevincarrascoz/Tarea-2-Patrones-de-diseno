@@ -35,7 +35,7 @@ class Estados {
     }
 
     /**
-     * Estado cuando se ha pagado el pedido
+     * Estado cuando el pedido esta pagado
      *
      * @return Estados
      */
@@ -47,7 +47,7 @@ class Estados {
     }
 
     /**
-     * Estado cuando esta en camino a ser recibido
+     * Estado cuando el pedido fue enviado al cliente
      *
      * @return Estados
      */
@@ -71,7 +71,7 @@ class Estados {
     }
 
     /**
-     * Estado cuando el pedido ha llegado a las manos del cliente
+     * Estado cuando el pedido es recibido por el cliente
      *
      * @return Estados
      */
