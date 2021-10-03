@@ -24,7 +24,6 @@ class Cheque extends Pago {
     }
     
     /**
-     * getNombre
      * devuelve el nombre asignado al cheque
      * @return string
      */
@@ -33,7 +32,6 @@ class Cheque extends Pago {
     }
     
     /**
-     * getBanco
      * devuelve el nombre del banco
      * @return string
      */
@@ -43,7 +41,7 @@ class Cheque extends Pago {
     
     /**
      * autorizar
-     * cambia el valor del atributo booleano 'aprobado' a verdadero indicando que se aprobo la transacción
+     * autoriza el pago del cheque
      * @return void
      */
     public function autorizar(){
@@ -51,8 +49,7 @@ class Cheque extends Pago {
     }
     
     /**
-     * getAprobado
-     * devuelve el valor del booleeano aprobado
+     * devuelve el valor aprobado del cheque, true o false
      * @return boolean
      */
     public function getAprobado(){
