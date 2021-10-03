@@ -69,7 +69,7 @@ mostrarInfo("Tarjeta", $nuevoTarjeta1);
 //autorizacion del pago con cheque
 $nuevoCheque1->autorizar();
 echo '<br>';
-mostrarInfo("Cheque", $nuevoCheque1);
+mostrarInfo("Cheque autorizado", $nuevoCheque1);
 
 //autorizacion del pago con tarjeta
 $nuevoTarjeta1->autorizar();

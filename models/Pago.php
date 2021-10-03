@@ -27,4 +27,17 @@ abstract class Pago {
         return $this->importe;
     }
 
+
+    //lista de pagos relacionados a el pedido
+    public function getListaPagos()
+    {
+        return json_encode($this->listaPagos);
+    }
+
+    //asigna la lista de pagos a un pedido
+    public function setListaPagos($listaPagos)
+    {
+        $this->listaPagos = $listaPagos;
+    }
+
 }

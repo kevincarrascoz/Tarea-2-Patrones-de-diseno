@@ -11,11 +11,11 @@ namespace models;
  */
 class Estados {
 
-    private static $_pendiente;
-    private static $_pagado;
-    private static $_procesando;
-    private static $_enviado;
-    private static $_entregado;
+    private static $pendiente;
+    private static $pagado;
+    private static $procesando;
+    private static $enviado;
+    private static $entregado;
 
     private function __construct($nombre)
     {
@@ -30,10 +30,10 @@ class Estados {
      * @return Estados
      */
     public static function pendiente() {
-        if (is_null(self::$_pendiente)) {
-            self::$_pendiente = new self("Pendiente");
+        if (is_null(self::$pendiente)) {
+            self::$pendiente = new self("Pendiente");
         }
-        return self::$_pendiente;
+        return self::$pendiente;
     }
 
     /**
@@ -44,10 +44,10 @@ class Estados {
      * @return Estados
      */
     public static function pagado() {
-        if (is_null(self::$_pagado)) {
-            self::$_pagado = new self("Pagado");
+        if (is_null(self::$pagado)) {
+            self::$pagado = new self("Pagado");
         }
-        return self::$_pagado;
+        return self::$pagado;
     }
 
     /**
@@ -58,10 +58,10 @@ class Estados {
      * @return Estados
      */
     public static function enviado() {
-        if (is_null(self::$_enviado)) {
-            self::$_enviado = new self("Enviado");
+        if (is_null(self::$enviado)) {
+            self::$enviado = new self("Enviado");
         }
-        return self::$_enviado;
+        return self::$enviado;
     }
 
     /**
@@ -72,10 +72,10 @@ class Estados {
      * @return Estados
      */
     public static function procesando() {
-        if (is_null(self::$_procesando)) {
-            self::$_procesando = new self("Procesando");
+        if (is_null(self::$procesando)) {
+            self::$procesando = new self("Procesando");
         }
-        return self::$_procesando;
+        return self::$procesando;
     }
 
     /**
@@ -86,10 +86,10 @@ class Estados {
      * @return Estados
      */
     public static function entregado() {
-        if (is_null(self::$_entregado)) {
-            self::$_entregado = new self("Entregado");
+        if (is_null(self::$entregado)) {
+            self::$entregado = new self("Entregado");
         }
-        return self::$_entregado;
+        return self::$entregado;
     }
 
 

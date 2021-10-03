@@ -40,9 +40,9 @@ class Cliente {
      * @return Pedido
      */
     public function solicitar($orden) {
-        $p = new Pedido(strtotime("now"), Estados::pendiente(), $orden);
-        array_push($this->pedidos, $p);
-        return $p;
+        $pedido = new Pedido(strtotime("now"), Estados::pendiente(), $orden);
+        array_push($this->pedidos, $pedido);
+        return $pedido;
     }
 
     public function mostrar() {

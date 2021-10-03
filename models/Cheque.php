@@ -60,17 +60,15 @@ class Cheque extends Pago {
     }
     
     public function mostrar(){
-        return json_encode($this->serializar(), JSON_PRETTY_PRINT);
-    }
-
-    public function serializar() {
-        return array(
+        return json_encode(array(
             'importe' => parent::getImporte(),
             'nombre' => $this->getNombre(),
             'banco' => $this->getBanco(),
             'estado_aprobacion' => $this->getAprobado()
             
-        );
+        ), JSON_PRETTY_PRINT);
     }
+
+    
 
 }

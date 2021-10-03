@@ -13,84 +13,61 @@ class Tarjeta extends Pago {
     
     /**
      * __construct
-     * implementacion del constructor, si el string ingresado para el parametro de tarjeta es distinto a Visa y Mastercard, se finaliza la ejecucion
      * @param  float $importe
      * @param  int $numero
      * @param  string $caducidad
      * @param  Tarjeta $tipo
      * @return void
      */
-    public function __construct($importe,$numero,$caducidad,$tipot){
+    public function __construct($importe,$numero,$caducidad,$tipoTarjeta){
         parent::__construct($importe);
         $this->numero=$numero;
         $this->caducidad=$caducidad;
-        if($tipot=='Visa' || $tipot=='Mastercard'){
-                $this->tipo=$tipot;
-        }
-        if($tipot!='Visa' && $tipot!='Mastercard'){
-            exit("<br><b>el tipo de tarjeta ingresado no es valido, ingresado: $tipot");
+        if($tipoTarjeta=='Visa' || $tipoTarjeta=='Mastercard'){
+                $this->tipo=$tipoTarjeta;
+        }else{
+            exit("<br><b>el tipo de tarjeta ingresado no es valido");
     }      
     }
     
-    /**
-     * getNumero
-     *
-     * @return int
-     */
+    //entrega el numero de la tarjeta
     public function getNumero(){
         return $this->numero;
     }
     
-    /**
-     * getCaducidad
-     * devuelve la fecha de caducidad de la tarjeta
-     * @return string
-     */
+    //entrega la fecha de caducidad de la tarjeta
     public function getCaducidad(){
         return $this->caducidad;
     }
     
-    /**
-     * getTipo
-     * devuelve el tipo de tarjeta
-     * @return Tarjeta
-     */
+    //entrega el tipo de tarjeta Visa o Mastercard
     public function getTipo(){
         return $this->tipo;
     }
         
-    /**
-     * autorizar
-     *cambia el valor del atributo booleano 'aprobado' a verdadero indicando que se aprobo la transacción
-     * @return void
-     */
+    //autoriza la transaccion
     public function autorizar(){
         $this->aprobado = true;
     }
     
-    /**
-     * getAprobado
-     * devuelve el valor del booleeano aprobado
-     * @return boolean
-     */
+    //devuelve el estado de la transaccion si fue aprobada o no
     public function getAprobado(){
         return $this->aprobado;
     }
 
     
     public function mostrar(){
-        return json_encode($this->serializar(), JSON_PRETTY_PRINT);
-    }
-
-    public function serializar() {
-        return array(
+        return json_encode(array(
             'importe'=>parent::getImporte(),
             'numero'=>$this->getNumero(),
             'caducidad'=>$this->getCaducidad(),
             'tipo'=>$this->getTipo(),
             'estado_aprobacion'=>$this->getAprobado()
-        );
+        ), JSON_PRETTY_PRINT);
     }
+
+  
+    
 
 }
 

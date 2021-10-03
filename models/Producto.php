@@ -3,11 +3,6 @@
 namespace models;
 
 
-/**
- * Producto
- * 
- * Representa un producto en stock.
- */
 class Producto {
 
     static private $productos = array();
@@ -22,19 +17,19 @@ class Producto {
      * __construct
      * 
      * @param string $producto nombre del producto
-     * @param float $peso del producto
-     * @param float $precio por unidad de cada producto
-     * @param int $stock_inicial
+     * @param float $peso peso del producto
+     * @param float $precio precio por unidad de cada producto, agregamos este que no estaba en el diagrama
+     * @param int $stock_ini stock inicial del producto
      */
-    private function __construct($producto, $peso, $precio, $stock_inicial) {
+    private function __construct($producto, $peso, $precio, $stock_ini) {
         $this->producto = $producto;
         $this->peso = $peso;
         $this->precio = $precio;
-        $this->stock = $stock_inicial;
+        $this->stock = $stock_ini;
     }
 
-    static public function nuevoProducto($producto, $peso, $precio, $stock_inicial) {
-        $o = new self($producto, $peso, $precio, $stock_inicial);
+    static public function nuevoProducto($producto, $peso, $precio, $stock_ini) {
+        $o = new self($producto, $peso, $precio, $stock_ini);
         array_push(self::$productos, $o);
         return $o;
     }
