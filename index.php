@@ -40,7 +40,7 @@ mostrarInfo("Producto: Lasagna", $productoNuevo4);
 echo '<br>';
 //obtiene el peso de un producto
 echo '<br> El peso de los Tallarines de ', $productoNuevo1->obtenerPeso(), ' Kg';
-echo '<br> El peso de la Lasagna de ', $productoNuevo1->obtenerPeso(), ' Kg';
+echo '<br> El peso de la Lasagna de ', $productoNuevo4->obtenerPeso(), ' Kg';
 
 echo '<br>';
 // creacion de cliente
