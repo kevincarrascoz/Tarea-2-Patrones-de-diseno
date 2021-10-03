@@ -32,24 +32,24 @@ class Pedido {
 
     public function calcularSubTotal() {
 
-        $s = 0.0;
+        $auxiliar = 0.0; // auxiliar para guardar el subtotal del pedido
         foreach ($this->ordenes as $value) {
-            $s += $value->calcularSubTotal();
+            $auxiliar += $value->calcularSubTotal();
         }
         unset($value);
 
-        return $s;
+        return $auxiliar;
     }
 
     public function calcularTotal() {
         $impuesto = 1.19;
-        $s = 0.0;
+        $auxiliar = 0.0; // auxiliar para guardar el subtotal del pedido
         foreach ($this->ordenes as $value) {
-            $s += $value->calcularSubTotal();
+            $auxiliar += $value->calcularSubTotal();
         }
         unset($value);
 
-        return $s*$impuesto;
+        return $auxiliar*$impuesto;
     }
 
 
