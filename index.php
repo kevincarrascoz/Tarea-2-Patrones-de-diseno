@@ -41,7 +41,7 @@ mostrarInfo("Cliente: ", $nuevoCliente1);
 
 $orden = array (
     "Tallarines" => 10,
-    "Salsa de tomates" => 5
+    "Salsa de tomates" => 5 //10  y 5 son la cantidad del producto
 );
 $nuevoPedido1 = $nuevoCliente1->solicitar($orden);
 echo '<br>';

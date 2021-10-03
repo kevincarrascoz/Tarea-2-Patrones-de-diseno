@@ -17,7 +17,7 @@ class Producto {
      * __construct
      * 
      * @param string $producto nombre del producto
-     * @param float $peso peso del producto
+     * @param float $peso peso del producto en kilogramos
      * @param float $precio precio por unidad de cada producto, agregamos este que no estaba en el diagrama
      * @param int $stock_ini stock inicial del producto
      */
