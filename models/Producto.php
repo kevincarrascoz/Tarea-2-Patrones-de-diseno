@@ -49,20 +49,19 @@ class Producto {
         return null;
     }
 
-    /**
-     * Cotiza el precio de $cantidad unidades,
-     * si el stock no alcanza, se regresa el precio
-     * como si se cotizara $stock unidades.
-     * @param int $cantidad 
-     * @return float
-     */
+    //entrega el precio total de un producto en particular dependiendo de la cantidad especifica del pedido
     public function precioCantidad($cantidad) {
-        return $this->precio * min($this->stock, $cantidad);
+        return $this->precio *  $cantidad;
     }
 
     //obtiene el peso de un producto
     public function obtenerPeso() {
         return $this->peso;
+    }
+
+    //obtiene el nombre de un producto
+    public function obtenerNombre() {
+        return $this->producto;
     }
 
     //muestra la informacion de un produto
