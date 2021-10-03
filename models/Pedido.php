@@ -15,8 +15,7 @@ class Pedido {
     public $estado;
 
     /**
-     * Todas los detalles de ordenes correspondientes
-     * a este pedido
+     * Todas los detalles de ordenes correspondientes a este pedido
      * @var array
      */
     public $ordenes;
@@ -39,12 +38,10 @@ class Pedido {
         }
     }
 
-    /**
-     * @return float
-     */
+
     public function calcularTotal() {
         $s = 0.0;
-        foreach ($this->ordenes as &$value) {
+        foreach ($this->ordenes as $value) {
             $s += $value->calcularSubTotal();
         }
         unset($value);

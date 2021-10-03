@@ -3,13 +3,6 @@
 namespace models;
 
 
-/**
- * DetalleOrden
- * 
- * Objeto que guarda la informacion de la cotizacion para
- * un producto. De lo mas importante que guarda es la 
- * cantidad cotizada y el producto que se cotiza.
- */
 class DetalleOrden  {
 
     public $cantidad;
@@ -22,7 +15,7 @@ class DetalleOrden  {
      * 
      * @param int $cantidad
      * @param float $precio
-     * @param float $impuesto porcentaje de impuesto, float con rango [0, 1]
+     * @param float $impuesto porcentaje de impuesto %
      * @param Producto $producto
      * @return void
      */
