@@ -47,6 +47,10 @@ $nuevoPedido1 = $nuevoCliente1->solicitar($orden);
 echo '<br>';
 mostrarInfo("Pedido del  cliente: ", $nuevoPedido1);
 
+
+echo "<li>El subtotal a pagar del pedido es: ";
+echo $nuevoPedido1->calcularSubTotal();
+
 echo "<li>El total a pagar del pedido es: ";
 echo $nuevoPedido1->calcularTotal();
 echo "</li>";

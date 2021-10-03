@@ -8,16 +8,7 @@ use models\DetalleOrden;
 class Pedido {
 
     public $fecha;
-
-    /**
-     * @var Estados
-     */
     public $estado;
-
-    /**
-     * Todas los detalles de ordenes correspondientes a este pedido
-     * @var array
-     */
     public $ordenes;
 
     /**
@@ -39,7 +30,8 @@ class Pedido {
     }
 
 
-    public function calcularTotal() {
+    public function calcularSubTotal() {
+
         $s = 0.0;
         foreach ($this->ordenes as $value) {
             $s += $value->calcularSubTotal();
@@ -48,6 +40,19 @@ class Pedido {
 
         return $s;
     }
+
+    public function calcularTotal() {
+        $impuesto = 1.19;
+        $s = 0.0;
+        foreach ($this->ordenes as $value) {
+            $s += $value->calcularSubTotal();
+        }
+        unset($value);
+
+        return $s*$impuesto;
+    }
+
+
 
     public function mostrar() {
         return json_encode($this->serializar(), JSON_PRETTY_PRINT);
