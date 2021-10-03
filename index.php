@@ -50,19 +50,20 @@ mostrarInfo("Pedido del  cliente: ", $nuevoPedido1);
 echo "<li>El total a pagar del pedido es: ";
 echo $nuevoPedido1->calcularTotal();
 echo "</li>";
+$pagoaRealizar = $nuevoPedido1->calcularTotal();
 
 // nuevo pago con cheque
-$nuevoCheque1 = new Cheque(2530,'Pago alimentos','Banco BCI');
+$nuevoCheque1 = new Cheque($pagoaRealizar,'Pago alimentos','Banco BCI');
 echo '<br>';
 mostrarInfo("Cheque: ", $nuevoCheque1);
 
 //nuevo pago con efectivo
-$nuevoEfectivo1 = new Efectivo(2660,'CLP');
+$nuevoEfectivo1 = new Efectivo($pagoaRealizar,'CLP');
 echo '<br>';
 mostrarInfo("Efectivo", $nuevoEfectivo1);
 
 //nuevo pago con tarjeta
-$nuevoTarjeta1 = new Tarjeta(530, 241500,'06-20-2028','Visa');
+$nuevoTarjeta1 = new Tarjeta($pagoaRealizar, 241500,'06-20-2028','Visa');
 echo '<br>';
 mostrarInfo("Tarjeta", $nuevoTarjeta1);
 

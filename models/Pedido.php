@@ -32,9 +32,9 @@ class Pedido {
         $this->ordenes = array();
 
         foreach ($orden as $producto => $cantidad) {
-            $pr = Producto::productoPorNombre($producto);
-            $o = new DetalleOrden($cantidad, $pr->precio, 0.05, $pr);
-            array_push($this->ordenes, $o);
+            $productoPedido = Producto::productoPorNombre($producto);
+            $nuevaOrden = new DetalleOrden($cantidad, $productoPedido->precio, 0.19, $productoPedido);
+            array_push($this->ordenes, $nuevaOrden);
         }
     }
 
