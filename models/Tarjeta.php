@@ -16,7 +16,7 @@ class Tarjeta extends Pago {
      * @param  float $importe
      * @param  int $numero
      * @param  string $caducidad
-     * @param  Tarjeta $tipo
+     * @param  Tarjeta $tipo este puede ser Visa o Mastercard
      * @return void
      */
     public function __construct($importe,$numero,$caducidad,$tipoTarjeta){

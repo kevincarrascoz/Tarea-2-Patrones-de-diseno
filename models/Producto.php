@@ -29,9 +29,9 @@ class Producto {
     }
 
     static public function nuevoProducto($producto, $peso, $precio, $stock_ini) {
-        $o = new self($producto, $peso, $precio, $stock_ini);
-        array_push(self::$productos, $o);
-        return $o;
+        $ordenProducto = new self($producto, $peso, $precio, $stock_ini);
+        array_push(self::$productos, $ordenProducto);
+        return $ordenProducto;
     }
 
     /**
