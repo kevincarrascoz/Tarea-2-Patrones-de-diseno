@@ -55,18 +55,14 @@ class Pedido {
 
 
     public function mostrar() {
-        return json_encode($this->serializar(), JSON_PRETTY_PRINT);
-    }
-
-    public function serializar()
-    {   //funcion para poder listar las ordenes
         $funcionListar = function($auxParaReturn) {
-            return $auxParaReturn->serializar();
+            return $auxParaReturn->mostrar();
         };
-        return array(
+        return json_encode(array(
             "Fecha" => date("Y-m-d H:i:s", $this->fecha),
             "Estado" => $this->estado->mostrar(),
-            "Ordenes" => array_map($funcionListar, $this->ordenes)
-        );
+            "Ordenes" => array($funcionListar, $this->ordenes)
+        ), JSON_PRETTY_PRINT);
     }
+
 }

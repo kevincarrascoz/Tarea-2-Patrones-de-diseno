@@ -84,7 +84,7 @@ class Estados {
 
 
     public function mostrar() {
-        return json_encode($this->nombre, JSON_PRETTY_PRINT);
+        return $this->nombre;
     }
 
     

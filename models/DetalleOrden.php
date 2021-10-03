@@ -40,16 +40,13 @@ class DetalleOrden  {
 
 
     public function mostrar() {
-        return json_encode($this->serializar(), JSON_PRETTY_PRINT);
-    }
-
-    public function serializar() {
-        return array(
+        return json_encode(array(
             "cantidad" => $this->cantidad,
             "precio" => $this->precio,
             "impuesto" => $this->impuesto,
             "producto" => $this->producto->mostrar()
-        );
+        ), JSON_PRETTY_PRINT);
     }
+
 
 }
