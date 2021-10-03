@@ -7,7 +7,6 @@ abstract class Pago {
  
     public $importe;    
 
-        
     /**
      * __construct
      *
@@ -18,11 +17,7 @@ abstract class Pago {
         $this->importe = $importe;
     }
     
-    /**
-     * getImporte
-     * devuelve el valor asignado a importe
-     * @return float
-     */
+    //devuelve el importe
     public function getImporte(){
         return $this->importe;
     }

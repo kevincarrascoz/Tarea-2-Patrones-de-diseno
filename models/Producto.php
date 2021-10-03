@@ -35,9 +35,8 @@ class Producto {
     }
 
     /**
-     * productoPorNombre
-     * 
-     * Obtiene un producto por nombre
+
+     * Obtiene un producto por su nombre
      * @param string $nombre
      * @return Producto
      */
@@ -51,8 +50,6 @@ class Producto {
     }
 
     /**
-     * precioCantidad
-     * 
      * Cotiza el precio de $cantidad unidades,
      * si el stock no alcanza, se regresa el precio
      * como si se cotizara $stock unidades.
@@ -63,35 +60,19 @@ class Producto {
         return $this->precio * min($this->stock, $cantidad);
     }
 
-    /**
-     * puedeSuplir
-     * 
-     * Regresa verdadero si hay stock para suplir
-     * una demanda $cantidad
-     * 
-     * @param int $cantidad
-     * @return boolean
-     */
-    public function puedeSuplir($cantidad) {
-        return $this->stock >= $cantidad;
-    }
-
+    //obtiene el peso de un producto
     public function obtenerPeso() {
         return $this->peso;
     }
 
-
+    //muestra la informacion de un produto
     public function mostrar() {
-        return json_encode($this->serializar(), JSON_PRETTY_PRINT);
-    }
-
-
-    public function serializar() {
-        return array(
+        return json_encode(array(
             "producto" => $this->producto,
             "peso" => $this->peso,
             "precio" => $this->precio,
             "stock" => $this->stock
-        );
+        ), JSON_PRETTY_PRINT);
     }
+
 }

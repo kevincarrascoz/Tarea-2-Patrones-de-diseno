@@ -48,7 +48,7 @@ class DetalleOrden  {
             "cantidad" => $this->cantidad,
             "precio" => $this->precio,
             "impuesto" => $this->impuesto,
-            "producto" => $this->producto->serializar()
+            "producto" => $this->producto->mostrar()
         );
     }
 
