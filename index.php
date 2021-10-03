@@ -24,7 +24,8 @@ function mostrarInfo($nombre, $objeto) {
 $productoNuevo1 = Producto::nuevoProducto("Tallarines", 0.70, 120.0, 500);
 echo '<br>';
 mostrarInfo("Producto: Tallarines ", $productoNuevo1);
-
+//obtiene el peso de un producto
+echo '<br> El peso de los Tallarines de ', $productoNuevo1->obtenerPeso(), ' Kg';
 // creacion de producto: Salsa de tomate
 $productoNuevo2 = Producto::nuevoProducto("Salsa de tomates", 0.80, 790.0, 250);
 echo '<br>';
