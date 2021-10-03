@@ -40,7 +40,6 @@ class Cheque extends Pago {
     }
     
     /**
-     * autorizar
      * autoriza el pago del cheque
      * @return void
      */

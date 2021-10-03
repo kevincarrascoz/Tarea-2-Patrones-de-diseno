@@ -23,8 +23,6 @@ class Estados {
     }
 
     /**
-     * pendiente
-     * 
      * Estado inicial de un pedido
      *
      * @return Estados
@@ -37,8 +35,6 @@ class Estados {
     }
 
     /**
-     * pagado
-     * 
      * Estado cuando se ha pagado el pedido
      *
      * @return Estados
@@ -51,8 +47,6 @@ class Estados {
     }
 
     /**
-     * enviado
-     * 
      * Estado cuando esta en camino a ser recibido
      *
      * @return Estados
@@ -65,8 +59,6 @@ class Estados {
     }
 
     /**
-     * procesando
-     * 
      * Estado cuando se esta procesando el pago del pedido
      *
      * @return Estados
@@ -79,8 +71,6 @@ class Estados {
     }
 
     /**
-     * entregado
-     * 
      * Estado cuando el pedido ha llegado a las manos del cliente
      *
      * @return Estados
@@ -94,10 +84,8 @@ class Estados {
 
 
     public function mostrar() {
-        return json_encode($this->serializar(), JSON_PRETTY_PRINT);
+        return json_encode($this->nombre, JSON_PRETTY_PRINT);
     }
 
-    public function serializar() {
-        return "Estados::" . $this->nombre;
-    }
+    
 }

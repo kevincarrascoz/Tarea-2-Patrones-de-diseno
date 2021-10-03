@@ -59,14 +59,14 @@ class Pedido {
     }
 
     public function serializar()
-    {
-        $f = function($x) {
-            return $x->serializar();
+    {   //funcion para poder listar las ordenes
+        $funcionListar = function($auxParaReturn) {
+            return $auxParaReturn->serializar();
         };
         return array(
-            "fecha" => date("Y-m-d H:i:s", $this->fecha),
-            "estado" => $this->estado->serializar(),
-            "ordenes" => array_map($f, $this->ordenes)
+            "Fecha" => date("Y-m-d H:i:s", $this->fecha),
+            "Estado" => $this->estado->mostrar(),
+            "Ordenes" => array_map($funcionListar, $this->ordenes)
         );
     }
 }
