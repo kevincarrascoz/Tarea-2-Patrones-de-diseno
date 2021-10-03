@@ -24,8 +24,6 @@ function mostrarInfo($nombre, $objeto) {
 $productoNuevo1 = Producto::nuevoProducto("Tallarines", 0.70, 120.0, 500);
 echo '<br>';
 mostrarInfo("Producto: Tallarines ", $productoNuevo1);
-//obtiene el peso de un producto
-echo '<br> El peso de los Tallarines de ', $productoNuevo1->obtenerPeso(), ' Kg';
 // creacion de producto: Salsa de tomate
 $productoNuevo2 = Producto::nuevoProducto("Salsa de tomates", 0.80, 790.0, 250);
 echo '<br>';
@@ -34,7 +32,17 @@ mostrarInfo("Producto: Salsa de tomates ", $productoNuevo2);
 $productoNuevo3 = Producto::nuevoProducto("Carne", 5.0, 6000.0, 20);
 echo '<br>';
 mostrarInfo("Producto: Carne ", $productoNuevo3);
+//creacion de producto: Lasagna
+$productoNuevo4 = Producto::nuevoProducto("Lasagna", 0.90, 6000.0, 40);
+echo '<br>';
+mostrarInfo("Producto: Lasagna", $productoNuevo4);
 
+echo '<br>';
+//obtiene el peso de un producto
+echo '<br> El peso de los Tallarines de ', $productoNuevo1->obtenerPeso(), ' Kg';
+echo '<br> El peso de la Lasagna de ', $productoNuevo1->obtenerPeso(), ' Kg';
+
+echo '<br>';
 // creacion de cliente
 $nuevoCliente1 = new Cliente("Kevin Carrasco Zenteno", "Finlandia 1667");
 echo '<br>';
