@@ -39,8 +39,10 @@ mostrarInfo("Producto: Lasagna", $productoNuevo4);
 
 echo '<br>';
 //obtiene el peso de un producto
-echo '<br> El peso de los Tallarines de ', $productoNuevo1->obtenerPeso(), ' Kg';
-echo '<br> El peso de la Lasagna de ', $productoNuevo4->obtenerPeso(), ' Kg';
+echo '<br> El peso de los Tallarines es ', $productoNuevo1->obtenerPeso(), ' Kg';
+echo '<br> El peso de la Salsa de tomates es ', $productoNuevo2->obtenerPeso(), ' Kg';
+echo '<br> El peso de la Carne es ', $productoNuevo3->obtenerPeso(), ' Kg';
+echo '<br> El peso de la Lasagna es ', $productoNuevo4->obtenerPeso(), ' Kg';
 
 echo '<br>';
 // creacion de cliente
@@ -56,11 +58,6 @@ $nuevoPedido1 = $nuevoCliente1->solicitar($orden);
 echo '<br>';
 mostrarInfo("Pedido del  cliente: ", $nuevoPedido1);
 
-echo '<br>';
-echo '<li>El precio total del producto ', $productoNuevo1->obtenerNombre(), ' es: ', $productoNuevo1->precioCantidad(10);
-echo '<br>';
-echo '<li>El precio total del producto ', $productoNuevo2->obtenerNombre(), ' es: ', $productoNuevo2->precioCantidad(5);
-echo '<br>';
 
 echo "<li>El subtotal a pagar del pedido es: ";
 echo $nuevoPedido1->calcularSubTotal();
