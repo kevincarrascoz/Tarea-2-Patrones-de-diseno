@@ -5,6 +5,10 @@ require_once 'models/Cliente.php';
 require_once 'models/Cheque.php';
 require_once 'models/Efectivo.php';
 require_once 'models/Tarjeta.php';
+require_once 'models/Pizza.php';
+require_once 'models/Pizzaria.php';
+
+
 use models\Producto;
 use models\Cliente;
 use models\Cheque;
