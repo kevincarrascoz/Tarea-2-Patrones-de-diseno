@@ -2,75 +2,60 @@
 
 namespace models;
 
+class Pizza  {
+    private $ingredientes;
+    private $tamano;
+    private $cantidad_queso;
+    private $tipo_masa;
+    private $terminado;
 
-class Pizza {
-
-    static private $pizza = array();
-
- 
-    public $tamaño;
-    public $masa;
-    public $queso;
-    public $ingredientes;
-
-    /**
-     * __construct
-     * 
-     * @param tamañoPizza $tamaño tamaño de la pizza
-     * @param tipoMasa $masa tipo de masa que tendrá la pizza
-     * @param cantidadQueso $queso cantidad de queso que tendrá la pizza
-     * @param listaIngredientes $ingredientes ingredientes que serán agregados a la pizza
-     */
-    private function __construct($tamaño, $masa, $queso, $ingredientes) {
-        $this->tamaño = $tamaño;
-        $this->masa = $masa;
-        $this->queso = $queso;
-        $this->ingredientes = $ingredientes;
+    public function __construct() {
+        $this->ingredientes = array();
+        $this->terminado = false;
     }
 
-    static public function nuevaPizza($tamaño, $masa, $queso, $ingredientes) {
-        $ordenProducto = new self($tamaño, $masa, $queso, $ingredientes);
-        array_push(self::$productos, $ordenProducto);
-        return $ordenProducto;
+    public function setIngrediente($ingrediente) {
+        array_push($this->ingredientes, $ingrediente);
+        return $this;
     }
 
-    /**
-
-     * Obtiene un producto por su nombre
-     * @param string $nombre
-     * @return Producto
-     */
-    static public function productoPorNombre($nombre) {
-        foreach (self::$productos as $value) {
-            if ($value->producto == $nombre) {
-                return $value;
-            }
-        }
-        return null;
+    public function setTamano($tamano) {
+        $this->tamano = $tamano;
+        return $this->tamano;
     }
 
-    //entrega el precio total de un producto en particular dependiendo de la cantidad especifica del pedido
-    public function precioCantidad($cantidad) {
-        return $this->precio *  $cantidad;
+    public function setCantidadQueso($cantidad) {
+        $this->cantidad_queso = $cantidad;
+        return $this->cantidad_queso;
     }
 
-    //obtiene el peso de un producto
-    public function obtenerPeso() {
-        return $this->peso;
+    public function setTipoMasa($tipo) {
+        $this->tipo_masa = $tipo;
+        return $this->tipo_masa;
     }
 
-    //obtiene el nombre de un producto
-    public function obtenerNombre() {
-        return $this->producto;
+    
+    public function estaTerminada() {
+        return $this->terminado;
     }
 
-    //muestra la informacion de un produto
+    public function terminar() {
+        $this->terminado = true;
+        return $this->terminado;
+    }
+
+    public function editar() {
+        $this->terminado = false;
+        return $this->terminado;
+    }
+
     public function mostrar() {
         return json_encode(array(
-            "producto" => $this->producto,
-            "peso" => $this->peso,
-            "precio" => $this->precio,
-            "stock" => $this->stock
+            "Ingredientes" => $this->ingredientes,
+            "Tamano" => $this->tamano,
+            "cantidad queso" => $this->cantidad_queso,
+            "Tipo masa" => $this->tipo_masa,
+            "Terminado" => $this->terminado
         ), JSON_PRETTY_PRINT);
     }
 

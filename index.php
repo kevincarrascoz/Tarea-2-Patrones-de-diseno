@@ -107,3 +107,14 @@ $empresa->setRun(19834922-4);
 $empresa->setTelefono(942018931);
 echo $empresa->mostrar();
 echo "<br>";
+
+echo "<br>Ejemplo seleccion caracteristicas de la pizza<br>";
+$pizza = new Pizza();
+$pizza->setTamano("grande");
+$pizza->setIngrediente("pepperoni");
+$pizza->setCantidadQueso("extra");
+$pizza->setIngrediente("carne");
+$pizza->setTipoMasa("delgada");
+$pizza->terminar();
+echo $pizza->mostrar();
+echo "<br>";
