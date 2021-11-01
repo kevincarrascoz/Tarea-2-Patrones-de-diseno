@@ -1,12 +1,11 @@
 <?php
-
 require_once 'models/Producto.php';
 require_once 'models/Cliente.php';
 require_once 'models/Cheque.php';
 require_once 'models/Efectivo.php';
 require_once 'models/Tarjeta.php';
 require_once 'models/Pizza.php';
-require_once 'models/Pizzaria.php';
+require_once 'models/Pizzeria.php';
 
 
 use models\Producto;
@@ -14,6 +13,9 @@ use models\Cliente;
 use models\Cheque;
 use models\Efectivo;
 use models\Tarjeta;
+use models\Pizzeria;
+use models\Pizza;
+
 
 
 function mostrarInfo($nombre, $objeto) {
@@ -96,5 +98,12 @@ $nuevoTarjeta1->autorizar();
 echo '<br>';
 mostrarInfo("Tarjeta autorizada", $nuevoTarjeta1);
 
-
-
+echo "<br>Inicio datos pizzeria<br>";
+$empresa = Pizzeria::Instance();
+$empresa->setNombre("Don Carter");
+$empresa->setDireccion("Finlandia 1667");
+$empresa->setDueno("Leo rey");
+$empresa->setRun(19834922-4);
+$empresa->setTelefono(942018931);
+echo $empresa->mostrar();
+echo "<br>";

@@ -7,7 +7,7 @@ class Pizzeria {
     public $nombre;
     public $direccion;
     public $dueno;
-    public $rut;
+    public $run;
     public $telefono;
     private static $instance = null;
 
@@ -31,7 +31,7 @@ class Pizzeria {
             'Nombre'=>$this->getNombre(),
             'Direccion'=>$this->getDireccion(),
             'Dueno'=>$this->getDueno(),
-            'Rut'=>$this->getRut(),
+            'RUN'=>$this->getRun(),
             'Telefono'=>$this->getTelefono(),
        
         ),JSON_PRETTY_PRINT);
@@ -63,12 +63,12 @@ class Pizzeria {
         $this->dueno = $dueno;
     }
 
-    public function getRut(){
-        return $this->rut;
+    public function getRun(){
+        return $this->run;
     }
     
-    public function setRut($rut){
-        $this->rut = $rut;
+    public function setRun($run){
+        $this->run = $run;
     }
 
     public function getTelefono(){
