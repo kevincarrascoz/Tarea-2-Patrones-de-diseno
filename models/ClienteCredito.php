@@ -33,6 +33,23 @@ class ClienteCredito extends Cliente{
         array_push($this->listaPedidos, $pedido);
         return $pedido;
     }
+
+    /*mostrar se separon en 2 para poder imprimir el array con los datos del pedido*/
+    public function mostrar2() {
+        $funcionAux = function($t) {
+            return $t->mostrar2();
+        };
+        return array(
+            'Nombre'=>$this->getNombre(),
+            'Rut'=>$this->getRut(),
+            'Correo'=>$this->getCorreo(),
+            'Pedidos'=> array_map($funcionAux, $this->getListaPedidos())
+        );
+    }
+
+    public function mostrar(){
+        return json_encode($this->mostrar2(),JSON_PRETTY_PRINT);
+    }
     
 
 

@@ -44,27 +44,14 @@ abstract class Cliente {
     public function getListaPedidos(){
         return $this->listaPedidos;
     }
-
+    /* el cliente termina de ordenar el pedido pero todavia no lo paga*/
     public function terminarPedido() {
         $this->estado = EstadoPedido::por_pagar();
     }
 
-    /*mostrar se separon en 2 para poder imprimir el array con los datos del pedido*/
-    public function mostrar2() {
-        $funcionAux = function($t) {
-            return $t->mostrar2();
-        };
-        return array(
-            'Nombre'=>$this->getNombre(),
-            'Rut'=>$this->getRut(),
-            'Correo'=>$this->getCorreo(),
-            'Pedidos'=> array_map($funcionAux, $this->getListaPedidos())
-        );
-    }
+    protected abstract function mostrar2();
 
-    public function mostrar(){
-        return json_encode($this->mostrar2(),JSON_PRETTY_PRINT);
-    }
+    protected abstract function mostrar();
 
     
 }
