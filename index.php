@@ -72,6 +72,7 @@ echo "<br>Ejemplo pago<br>";
 $tarjetaCliente1 = new Tarjeta(14499,123456798,'12-05-2028');
 echo "<br>Tarjeta <br>";
 echo $tarjetaCliente1->mostrar();
+$tarjetaCliente1->autorizar();
 $pedido->pagar($tarjetaCliente1);
 echo "<br>";
 echo $pedido->mostrar();
