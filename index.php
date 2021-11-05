@@ -5,6 +5,8 @@ require_once 'models/Efectivo.php';
 require_once 'models/Tarjeta.php';
 require_once 'models/Pizzeria.php';
 require_once 'models/Cliente.php';
+require_once 'models/ClienteCredito.php';
+require_once 'models/ClienteEfectivo.php';
 require_once 'models/Pedido.php';
 
 use models\Pizza;
@@ -13,6 +15,8 @@ use models\Efectivo;
 use models\Tarjeta;
 use models\Pizzeria;
 use models\Cliente;
+use models\ClienteCredito;
+use models\ClienteEfectivo;
 use models\Pedido;
 
 
@@ -32,7 +36,7 @@ echo "<br>";
 
 /*Creacion nuevo cliente*/
 echo "<br>Nuevo cliente 1<br>";
-$cliente1 = new Cliente("Kevin Carrasco",198349224,"kcarrasco@gmail.com");
+$cliente1 = new ClienteCredito("Kevin Carrasco",198349224,"kcarrasco@gmail.com");
 echo $cliente1->mostrar();
 echo "<br>";
 
@@ -50,7 +54,7 @@ echo "<br>";
 
 /* ejemplo como realizar un pedido */
 echo "<br>Ejemplo pedido pizza<br>";
-$pedido = $cliente1->solicitar();
+$pedido = $cliente1->solicitar2();
 $pedidoPizza = $pedido->nuevaPizza();
 $pedidoPizza->asignarTipoMasa("delgada");
 $pedidoPizza->asignarTamano("mediana");

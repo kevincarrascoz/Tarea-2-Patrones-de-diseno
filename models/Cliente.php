@@ -11,7 +11,7 @@ use models\Pago;
 use models\Cliente;
 use models\EstadoPedido;
 
-class Cliente {
+abstract class Cliente {
     public $nombre;
     public $rut;
     public $correo;
@@ -27,12 +27,7 @@ class Cliente {
         $this->listaPedidos = array();
     }
    
-
-    public function solicitar() {
-        $pedido = new Pedido(date("m-d-Y"));
-        array_push($this->listaPedidos, $pedido);
-        return $pedido;
-    }
+    protected abstract function solicitar2();
     
     public function getNombre(){
         return $this->nombre;
