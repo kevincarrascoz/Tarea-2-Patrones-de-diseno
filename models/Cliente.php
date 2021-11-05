@@ -5,9 +5,11 @@ namespace models;
 require_once "Pago.php";
 require_once "Cliente.php";
 require_once "Pedido.php";
+require_once "EstadoPedido.php";
 use models\Pedido;
 use models\Pago;
 use models\Cliente;
+use models\EstadoPedido;
 
 class Cliente {
     public $nombre;
@@ -27,7 +29,7 @@ class Cliente {
    
 
     public function solicitar() {
-        $pedido = new Pedido(date("d-m-Y"));
+        $pedido = new Pedido(date("m-d-Y"));
         array_push($this->listaPedidos, $pedido);
         return $pedido;
     }
@@ -47,10 +49,15 @@ class Cliente {
     public function getListaPedidos(){
         return $this->listaPedidos;
     }
+
+    public function terminarPedido() {
+        $this->estado = EstadoPedido::por_pagar();
+    }
+
     /*mostrar se separon en 2 para poder imprimir el array con los datos del pedido*/
-    public function serializar() {
+    public function mostrar2() {
         $funcionAux = function($t) {
-            return $t->serializar();
+            return $t->mostrar2();
         };
         return array(
             'Nombre'=>$this->getNombre(),
@@ -61,7 +68,7 @@ class Cliente {
     }
 
     public function mostrar(){
-        return json_encode($this->serializar(),JSON_PRETTY_PRINT);
+        return json_encode($this->mostrar2(),JSON_PRETTY_PRINT);
     }
 
     

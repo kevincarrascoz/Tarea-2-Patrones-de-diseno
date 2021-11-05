@@ -56,9 +56,9 @@ class Pedido {
         $this->estado = EstadoPedido::por_pagar();
     }
 
-    public function serializar() {
+    public function mostrar2() {
         $s = function($t) {
-            return $t->serializar();
+            return $t->mostrar2();
         };
         return array(
             'Fecha_Pedido' => $this->fecha,
@@ -68,7 +68,7 @@ class Pedido {
     }
 
     public function mostrar() {
-        return json_encode($this->serializar(), JSON_PRETTY_PRINT);
+        return json_encode($this->mostrar2(), JSON_PRETTY_PRINT);
     } 
     
 }

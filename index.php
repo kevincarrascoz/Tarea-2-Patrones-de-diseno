@@ -56,6 +56,8 @@ $pedidoPizza->asignarTipoMasa("delgada");
 $pedidoPizza->asignarTamano("mediana");
 $pedidoPizza->asignarCantidadQueso("normal");
 $pedidoPizza->agregarIngrediente("tomate");
+$pedidoPizza->agregarIngrediente("choclo");
+$pedidoPizza->agregarIngrediente("peperoni americano");
 $pedidoPizza->terminar();
 $pedido->terminarPedido();
 echo $cliente1->mostrar();

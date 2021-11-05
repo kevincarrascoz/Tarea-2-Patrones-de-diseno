@@ -62,10 +62,10 @@ class EstadoPedido {
 
 
     public function mostrar() {
-        return json_encode($this->serializar());
+        return json_encode($this->mostrar2());
     }
 
-    public function serializar() {
+    public function mostrar2() {
         return $this->name;
     }
 }
