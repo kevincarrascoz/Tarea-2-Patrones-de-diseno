@@ -7,6 +7,7 @@ require_once 'Pago.php';
 class Tarjeta extends Pago {
     public $numero;
     public $caducidad;
+    public $aprobado=false;
     
     public function __construct($monto, $numero, $caducidad){
         parent::__construct($monto);
@@ -22,6 +23,10 @@ class Tarjeta extends Pago {
     
     public function getCaducidad(){
         return $this->caducidad;
+    }
+
+    public function autorizar(){
+        $this->aprobado = true;
     }
     
    
