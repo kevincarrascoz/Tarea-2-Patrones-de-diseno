@@ -17,6 +17,7 @@ class Pedido {
     public $estado;
     public $pizzas;
     public $listaPagos;
+    public $totalPedido=1000;
 
     
     public function __construct($fecha)
@@ -39,17 +40,10 @@ class Pedido {
         return json_encode($this->listaPagos);
     }
     
-   
-    public function setPago($listaPagos)
-    {
-        $this->listaPagos = $listaPagos;
-    }
-    
-
     public function pagar($listaPagos) {
 
         $this->estado = EstadoPedido::pagado();
-        $this->setPago($listaPagos);
+        $this->listaPagos = $listaPagos;
     }
 
     public function terminarPedido() {
