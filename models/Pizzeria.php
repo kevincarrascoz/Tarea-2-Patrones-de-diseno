@@ -6,7 +6,7 @@ class Pizzeria {
     public $nombre;
     public $direccion;
     public $dueno;
-    public $rut;
+    public $run;
     public $telefono;
     private static $instance = null;
 
@@ -21,18 +21,6 @@ class Pizzeria {
         }
         return Pizzeria::$instance;
     }  
-
-
-
-    public function mostrar(){
-        return json_encode(array(
-            'Nombre'=>$this->getNombre(),
-            'Direccion'=>$this->getDireccion(),
-            'Dueno'=>$this->getDueno(),
-            'Run'=>$this->getRun(),
-            'Telefono'=>$this->getTelefono()
-        ),JSON_PRETTY_PRINT);
-    }
 
     
     public function getNombre(){
@@ -74,6 +62,16 @@ class Pizzeria {
     
     public function setTelefono($telefono){
         $this->telefono = $telefono;
+    }
+
+    public function mostrar(){
+        return json_encode(array(
+            'Nombre'=>$this->getNombre(),
+            'Direccion'=>$this->getDireccion(),
+            'Dueno'=>$this->getDueno(),
+            'Run'=>$this->getRun(),
+            'Telefono'=>$this->getTelefono()
+        ),JSON_PRETTY_PRINT);
     }
 
 
