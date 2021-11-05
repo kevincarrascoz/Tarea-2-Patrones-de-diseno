@@ -2,67 +2,73 @@
 
 namespace models;
 
-require_once "DetalleOrden.php";
-use models\DetalleOrden;
+require_once "Pago.php";
+require_once "Cliente.php";
+require_once "Pizza.php";
+require_once "EstadoPedido.php";
+
+use models\Pizza;
+use models\Cliente;
+use models\Pago;
+use models\EstadoPedido;
 
 class Pedido {
-
     public $fecha;
     public $estado;
-    public $ordenes;
+    public $pizzas;
+    public $listaPagos;
 
-    /**
-     * __construct
-     * @param int $fecha
-     * @param Estados $estado
-     */
-    public function __construct($fecha, $estado, $orden)
+    
+    public function __construct($fecha)
     {
         $this->fecha = $fecha;
-        $this->estado = $estado;
-        $this->ordenes = array();
-
-        foreach ($orden as $producto => $cantidad) {
-            $productoPedido = Producto::productoPorNombre($producto);
-            $nuevaOrden = new DetalleOrden($cantidad, $productoPedido->precio, 0.19, $productoPedido);
-            array_push($this->ordenes, $nuevaOrden);
-        }
+        $this->estado = EstadoPedido::nuevo();
+        $this->pizzas = array();   
+    }
+    
+    public function nuevaPizza() {
+        $this->estado = EstadoPedido::preparando();
+        $pizza = new Pizza();
+        array_push($this->pizzas, $pizza);
+        return $pizza;
     }
 
+        
+    public function getPago()
+    {
+        return json_encode($this->listaPagos);
+    }
+    
+   
+    public function setPago($listaPagos)
+    {
+        $this->listaPagos = $listaPagos;
+    }
+    
 
-    public function calcularSubTotal() {
+    public function pagar($listaPagos) {
 
-        $auxiliar = 0.0; // auxiliar para guardar el subtotal del pedido
-        foreach ($this->ordenes as $value) {
-            $auxiliar += $value->calcularSubTotal();
-        }
-        unset($value);
-
-        return $auxiliar;
+        $this->estado = EstadoPedido::pagado();
+        $this->setPago($listaPagos);
     }
 
-    public function calcularTotal() {
-        $impuesto = 1.19;
-        $auxiliar = 0.0; // auxiliar para guardar el subtotal del pedido
-        foreach ($this->ordenes as $value) {
-            $auxiliar += $value->calcularSubTotal();
-        }
-        unset($value);
-
-        return $auxiliar*$impuesto;
+    public function terminarPedido() {
+        $this->estado = EstadoPedido::por_pagar();
     }
 
-
+    public function serializar() {
+        $s = function($t) {
+            return $t->serializar();
+        };
+        return array(
+            'Fecha_Pedido' => $this->fecha,
+            'Estado_Pedido' => $s($this->estado),
+            'Pizza' => array_map($s, $this->pizzas)
+        );
+    }
 
     public function mostrar() {
-        $funcionListar = function($auxParaReturn) {
-            return $auxParaReturn->mostrar();
-        };
-        return json_encode(array(
-            "Fecha" => date("Y-m-d H:i:s", $this->fecha),
-            "Estado" => $this->estado->mostrar(),
-            "Ordenes" => array($funcionListar, $this->ordenes)
-        ), JSON_PRETTY_PRINT);
-    }
-
+        return json_encode($this->serializar(), JSON_PRETTY_PRINT);
+    } 
+    
 }

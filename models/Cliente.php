@@ -2,62 +2,67 @@
 
 namespace models;
 
+require_once "Pago.php";
+require_once "Cliente.php";
 require_once "Pedido.php";
-require_once "Estados.php";
 use models\Pedido;
-use models\Estados;
+use models\Pago;
+use models\Cliente;
 
-/**
- * Cliente
- * 
- * Un cliente puede hacer pedidos, cotizar y pagar.
- */
 class Cliente {
-
     public $nombre;
-    public $direccion;
-    public $pedidos;
+    public $rut;
+    public $correo;
+    public $listaPedidos;
 
-    /**
-     * __construct
-     * 
-     * @param string $nombre
-     * @param string $direccion
-     * @return void
-     */
-    public function __construct($nombre, $direccion) 
+    
+    
+    public function __construct($nombre, $rut, $correo) 
     {
         $this->nombre = $nombre;
-        $this->direccion = $direccion;
-        $this->pedidos = array();
+        $this->rut = $rut;
+        $this->correo = $correo;
+        $this->listaPedidos = array();
     }
+   
 
-    /**
-     * solicitar
-     * 
-     * Solicita un pedido desde este cliente
-     * @param array $orden
-     * @return Pedido
-     */
-    public function solicitar($orden) {
-        $pedido = new Pedido(strtotime("now"), Estados::pendiente(), $orden);
-        array_push($this->pedidos, $pedido);
+    public function solicitar() {
+        $pedido = new Pedido(date("d-m-Y"));
+        array_push($this->listaPedidos, $pedido);
         return $pedido;
     }
-
-    public function mostrar() {
-        return json_encode($this->serializar(), JSON_PRETTY_PRINT);
+    
+    public function getNombre(){
+        return $this->nombre;
     }
 
+    public function getRut(){
+        return $this->rut;
+    }
+
+    public function getCorreo(){
+        return $this->correo;
+    }
+
+    public function getListaPedidos(){
+        return $this->listaPedidos;
+    }
+    /*mostrar se separon en 2 para poder imprimir el array con los datos del pedido*/
     public function serializar() {
-        $get_serial = function($e) {
-            return $e->serializer();
+        $funcionAux = function($t) {
+            return $t->serializar();
         };
-        
         return array(
-            "nombre" => $this->nombre,
-            "direccion" => $this->direccion,
-            "pedidos" => array_map($get_serial, $this->pedidos)
+            'Nombre'=>$this->getNombre(),
+            'Rut'=>$this->getRut(),
+            'Correo'=>$this->getCorreo(),
+            'Pedidos'=> array_map($funcionAux, $this->getListaPedidos())
         );
     }
+
+    public function mostrar(){
+        return json_encode($this->serializar(),JSON_PRETTY_PRINT);
+    }
+
+    
 }

@@ -2,7 +2,7 @@
 
 namespace models;
 
-class Pizza  {
+class Pizza {
     private $ingredientes;
     private $tamano;
     private $cantidad_queso;
@@ -14,24 +14,34 @@ class Pizza  {
         $this->terminado = false;
     }
 
-    public function setIngrediente($ingrediente) {
+    private function chequearTermino($nombre = "Desconocido") {
+        if ($this->terminado) {
+            throw new \Exception("Esta pizza ya esta terminada. No se puede realizar accion: " . $nombre);
+        }
+    }
+
+    public function agregarIngrediente($ingrediente) {
+        $this->chequearTermino("agregarIngrediente");
         array_push($this->ingredientes, $ingrediente);
         return $this;
     }
 
-    public function setTamano($tamano) {
+    public function asignarTamano($tamano) {
+        $this->chequearTermino("asignarTamano");
         $this->tamano = $tamano;
-        return $this->tamano;
+        return $this;
     }
 
-    public function setCantidadQueso($cantidad) {
+    public function asignarCantidadQueso($cantidad) {
+        $this->chequearTermino("asignarCantidadQueso");
         $this->cantidad_queso = $cantidad;
-        return $this->cantidad_queso;
+        return $this;
     }
 
-    public function setTipoMasa($tipo) {
+    public function asignarTipoMasa($tipo) {
+        $this->chequearTermino("asignarTipoMasa");
         $this->tipo_masa = $tipo;
-        return $this->tipo_masa;
+        return $this;
     }
 
     
@@ -40,23 +50,24 @@ class Pizza  {
     }
 
     public function terminar() {
-        $this->terminado = true;
-        return $this->terminado;
+        return $this->terminado = true;
     }
 
     public function editar() {
         $this->terminado = false;
-        return $this->terminado;
+        return $this;
     }
 
     public function mostrar() {
-        return json_encode(array(
-            "Ingredientes" => $this->ingredientes,
-            "Tamano" => $this->tamano,
-            "cantidad queso" => $this->cantidad_queso,
-            "Tipo masa" => $this->tipo_masa,
-            "Terminado" => $this->terminado
-        ), JSON_PRETTY_PRINT);
+        return json_encode($this->serializar());
     }
 
+    public function serializar() {
+        return array(
+            "ingredientes" => $this->ingredientes,
+            "tamano" => $this->tamano,
+            "cantidad_queso" => $this->cantidad_queso,
+            "tipo_masa" => $this->tipo_masa
+        );
+    }
 }

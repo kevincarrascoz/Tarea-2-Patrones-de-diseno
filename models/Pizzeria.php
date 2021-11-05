@@ -2,12 +2,11 @@
 
 namespace models;
 
-
 class Pizzeria {    
     public $nombre;
     public $direccion;
     public $dueno;
-    public $run;
+    public $rut;
     public $telefono;
     private static $instance = null;
 
@@ -25,15 +24,13 @@ class Pizzeria {
 
 
 
-
     public function mostrar(){
         return json_encode(array(
             'Nombre'=>$this->getNombre(),
             'Direccion'=>$this->getDireccion(),
             'Dueno'=>$this->getDueno(),
-            'RUN'=>$this->getRun(),
-            'Telefono'=>$this->getTelefono(),
-       
+            'Run'=>$this->getRun(),
+            'Telefono'=>$this->getTelefono()
         ),JSON_PRETTY_PRINT);
     }
 
@@ -78,9 +75,6 @@ class Pizzeria {
     public function setTelefono($telefono){
         $this->telefono = $telefono;
     }
-
-
-
 
 
 }
