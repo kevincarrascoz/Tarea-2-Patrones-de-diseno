@@ -41,6 +41,7 @@ class Pedido {
     public function pagar($listaPagos) {
 
         $this->estado = EstadoPedido::pagado();
+        $this->listaPagos = $listaPagos;
     }
 
     public function terminarPedido() {
