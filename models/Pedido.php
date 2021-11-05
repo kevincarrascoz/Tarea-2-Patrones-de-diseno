@@ -17,8 +17,6 @@ class Pedido {
     public $estado;
     public $pizzas;
     public $listaPagos;
-    public $totalPedido=1000;
-
     
     public function __construct($fecha)
     {
@@ -43,7 +41,6 @@ class Pedido {
     public function pagar($listaPagos) {
 
         $this->estado = EstadoPedido::pagado();
-        $this->listaPagos = $listaPagos;
     }
 
     public function terminarPedido() {
