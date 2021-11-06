@@ -22,17 +22,17 @@ class Pizza {
 
     public function asignarTamano($tamano) {
         $this->tamano = $tamano;
-        return $this;
+        return $this->tamano;
     }
 
     public function asignarCantidadQueso($cantidad) {
         $this->cantidad_queso = $cantidad;
-        return $this;
+        return $this->cantidad_queso;
     }
 
     public function asignarTipoMasa($tipo) {
         $this->tipo_masa = $tipo;
-        return $this;
+        return $this->tipo_masa;
     }
 
     
