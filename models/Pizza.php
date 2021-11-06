@@ -14,32 +14,23 @@ class Pizza {
         $this->terminado = false;
     }
 
-    private function chequearTermino($nombre = "Desconocido") {
-        if ($this->terminado) {
-            throw new \Exception("Esta pizza ya esta terminada. No se puede realizar accion: " . $nombre);
-        }
-    }
 
     public function agregarIngrediente($ingrediente) {
-        $this->chequearTermino("agregarIngrediente");
         array_push($this->ingredientes, $ingrediente);
         return $this;
     }
 
     public function asignarTamano($tamano) {
-        $this->chequearTermino("asignarTamano");
         $this->tamano = $tamano;
         return $this;
     }
 
     public function asignarCantidadQueso($cantidad) {
-        $this->chequearTermino("asignarCantidadQueso");
         $this->cantidad_queso = $cantidad;
         return $this;
     }
 
     public function asignarTipoMasa($tipo) {
-        $this->chequearTermino("asignarTipoMasa");
         $this->tipo_masa = $tipo;
         return $this;
     }

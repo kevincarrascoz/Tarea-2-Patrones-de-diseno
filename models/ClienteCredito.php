@@ -12,13 +12,7 @@ use models\Cliente;
 use models\EstadoPedido;
 
 class ClienteCredito extends Cliente{
-    public $nombre;
-    public $rut;
-    public $correo;
-    public $listaPedidos;
 
-    
-    
     public function __construct($nombre, $rut, $correo) 
     {
         $this->nombre = $nombre;
@@ -43,7 +37,7 @@ class ClienteCredito extends Cliente{
             'Nombre'=>$this->getNombre(),
             'Rut'=>$this->getRut(),
             'Correo'=>$this->getCorreo(),
-            'Pedidos'=> array_map($funcionAux, $this->getListaPedidos())
+            'Pedidos'=> array_map($funcionAux, parent::getListaPedidos())
         );
     }
 
