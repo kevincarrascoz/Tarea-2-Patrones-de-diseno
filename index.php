@@ -24,3 +24,13 @@ $aplicacion->setNombre("Aplicacion");
 $aplicacion->setDueno("Kevin Carrasco");
 echo $aplicacion->mostrar();
 echo "<br>";
+
+$notificacionInterna = new NotificacionInterna();
+$notificacionInterna->setTitulo("Notificacion Interna 1");
+$notificacionInterna->setDescripcion("Descripcion xd");
+$notificacionInterna->setPrioridad("Alta");
+$notificacionInterna->setDuracion(2.5);
+$notificacionInterna->setColor("#000123");
+$notificacionInterna->setEstado("Activa");
+echo "Notificacion interna sin decorar<br>";
+echo $notificacionInterna->mostrar(); 
