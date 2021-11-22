@@ -6,6 +6,7 @@ require_once "Pago.php";
 require_once "Cliente.php";
 require_once "Pedido.php";
 require_once "EstadoPedido.php";
+
 use models\Pedido;
 use models\Pago;
 use models\Cliente;
@@ -21,7 +22,6 @@ class ClienteCredito extends Cliente{
         $this->listaPedidos = array();
     }
    
-
     public function solicitar2() {
         $pedido = new Pedido(date("m-d-Y"));
         array_push($this->listaPedidos, $pedido);
