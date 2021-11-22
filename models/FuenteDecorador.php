@@ -24,18 +24,11 @@ class FuenteDecorador extends Decorador{
 
     public static function clsGetFuente($decorado) {
         $obj = EfectoDecorador::getPrimerFuenteDecorador($decorado);
-
-        if (is_null($obj)) {
-            throw new \Exception("Object was not decorated with FuenteDecorador.");
-        }
         return $obj->getFuente();
     }
 
     public static function clsSetFuente($decorado, $fuente) {
         $obj = FuenteDecorador::getPrimerFuenteDecorador($decorado);
-        if (is_null($obj)) {
-            throw new \Exception("Object was not decorated with FuenteDecorador.");
-        }
         $obj->setFuente($fuente);
         return true;
     }
