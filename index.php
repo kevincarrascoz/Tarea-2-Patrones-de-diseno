@@ -45,6 +45,7 @@ echo $fuentedecorador->mostrar();
 echo "<br><br>";
 InterlineadoDecorador::clsSetInterlineado($fuentedecorador, '3.5');
 echo "Notificacion interna 1 decorada, cambiando el interlineado";
+echo "<br>";
 echo $fuentedecorador->mostrar();
 echo "<br><br><br>";
 

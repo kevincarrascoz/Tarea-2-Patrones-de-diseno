@@ -2,6 +2,7 @@
 namespace models;
 
 require_once 'Notificacion.php';
+require_once 'ComponenteNotificacionExterna.php';
 
 class NotificacionExterna implements Notificacion {
 
@@ -15,8 +16,10 @@ class NotificacionExterna implements Notificacion {
     private $ip;
     private $so;
     private $fecha;
+    protected $notificacionEx;
     
     public function __construct() {
+        $this->notificacionEx = new ComponenteNotificacionExterna();
     }
 
     public function setTitulo($value) {
@@ -46,15 +49,15 @@ class NotificacionExterna implements Notificacion {
 
 
     public function setIP($value) {
-        $this->ip = $value;
+        $this->ip = $this->notificacionEx->compSetIP($value);
         return $this;
     }
     public function setSO($value) {
-        $this->so = $value;
+        $this->so = $this->notificacionEx->compSetSO($value);
         return $this;
     }
     public function setFecha($value) {
-        $this->fecha = $value;
+        $this->fecha = $this->notificacionEx->compSetFecha($value);
         return $this;
     }
 
@@ -84,13 +87,13 @@ class NotificacionExterna implements Notificacion {
     }
 
     public function getIP() {
-        return $this->ip;
+        return $this->notificacionEx->compGetIP();
     }
     public function getSO() {
-        return $this->so;
+        return $this->notificacionEx->compGetSO();
     }
     public function getFecha() {
-        return $this->fecha;
+        return $this->notificacionEx->compGetFecha();
     }
 
 

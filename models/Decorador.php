@@ -13,14 +13,6 @@ abstract class Decorador implements Notificacion {
     public function getComponente() {
         return $this->componente;
     }
-   
-    public static function clsGetComponente($decorado) {
-        $obj = $decorado;
-        while(is_a($obj, 'Decorador')) {
-            $obj = $obj->getComponente();
-        }
-        return $obj;
-    }
 
     public function mostrar2() {
         return $this->componente->mostrar2();
