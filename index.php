@@ -51,12 +51,12 @@ echo "<br><br><br>";
 
 
 $notificacionExterna = new NotificacionExterna();
-$notificacionInterna->setTitulo("Notificacion Externa 1");
-$notificacionInterna->setDescripcion("Descripcion externa");
-$notificacionInterna->setPrioridad("Media");
-$notificacionInterna->setDuracion(2.5);
-$notificacionInterna->setColor("#000453");
-$notificacionInterna->setEstado("Activa");
+$notificacionExterna->setTitulo("Notificacion Externa 1");
+$notificacionExterna->setDescripcion("Descripcion externa");
+$notificacionExterna->setPrioridad("Media");
+$notificacionExterna->setDuracion(2.5);
+$notificacionExterna->setColor("#000453");
+$notificacionExterna->setEstado("Activa");
 
 $notificacionExterna->setIP("200.130.20.152");
 $notificacionExterna->setSO("Android 10.1");
