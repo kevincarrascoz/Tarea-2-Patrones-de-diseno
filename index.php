@@ -16,3 +16,11 @@ use models\InterlineadoDecorador;
 use models\Notificacion;
 use models\NotificacionExterna;
 use models\NotificacionInterna;
+
+
+echo "<br>Ingreso datos Aplicacion<br>";
+$aplicacion = Aplicacion::Instance();
+$aplicacion->setNombre("Aplicacion");
+$aplicacion->setDueno("Kevin Carrasco");
+echo $aplicacion->mostrar();
+echo "<br>";
