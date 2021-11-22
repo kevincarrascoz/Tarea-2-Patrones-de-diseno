@@ -35,22 +35,17 @@ $notificacionInterna->setEstado("Activa");
 echo "Notificacion interna 1<br>";
 echo $notificacionInterna->mostrar(); 
 echo "<br><br>";
-
-echo "<br>";
 // ejemplo decorador con notificacion interna 1 
-$interlineadodecorador = new InterlineadoDecorador($notificacionInterna);  
-$fuentedecorador = new FuenteDecorador($interlineadodecorador);
+$interlineadodecoradorInterna = new InterlineadoDecorador($notificacionInterna);  
+$fuentedecoradorInterna = new FuenteDecorador($interlineadodecoradorInterna);
 echo "Notificacion interna 1 decorada<br>";
-echo $fuentedecorador->mostrar();
+echo $fuentedecoradorInterna->mostrar();
 echo "<br><br>";
-InterlineadoDecorador::clsSetInterlineado($fuentedecorador, '3.5');
+InterlineadoDecorador::clsSetInterlineado($fuentedecoradorInterna, '3.5');
 echo "Notificacion interna 1 decorada, cambiando el interlineado";
 echo "<br>";
-echo $fuentedecorador->mostrar();
-echo "<br><br><br>";
-
-
-
+echo $fuentedecoradorInterna->mostrar();
+echo "<br><br>";
 $notificacionExterna = new NotificacionExterna();
 $notificacionExterna->setTitulo("Notificacion Externa 1");
 $notificacionExterna->setDescripcion("Descripcion externa");
@@ -65,4 +60,14 @@ $notificacionExterna->setFecha("23-11-2021");
 echo "Notificacion externa sin decorar<br>";
 echo $notificacionExterna->mostrar(); 
 echo "<br><br>";
-
+// ejemplo decorador con notificacion interna 1 
+$interlineadodecoradorExterna = new InterlineadoDecorador($notificacionExterna);  
+$fuentedecoradorExterna = new FuenteDecorador($interlineadodecoradorExterna);
+echo "Notificacion interna 1 decorada<br>";
+echo $fuentedecoradorExterna->mostrar();
+echo "<br><br>";
+InterlineadoDecorador::clsSetInterlineado($fuentedecoradorExterna, '4.5');
+echo "Notificacion interna 1 decorada, cambiando el interlineado";
+echo "<br>";
+echo $fuentedecoradorExterna->mostrar();
+echo "<br><br><br>";

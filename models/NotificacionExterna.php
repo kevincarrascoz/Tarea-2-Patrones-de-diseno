@@ -97,8 +97,8 @@ class NotificacionExterna implements Notificacion {
     }
 
 
-    public function mostrar() {
-        return json_encode(array(
+    public function mostrar2() {
+        return array(
             "titulo" => $this->getTitulo(),
             "descripcion" => $this->getDescripcion(),
             "prioridad" => $this->getPrioridad(),
@@ -108,6 +108,11 @@ class NotificacionExterna implements Notificacion {
             "ip" => $this->getIP(),
             "so" => $this->getSO(),
             "fecha" => $this->getFecha()
-        ));
+        );
+    }
+
+
+    public function mostrar() {
+        return json_encode($this->mostrar2());
     }
 }
