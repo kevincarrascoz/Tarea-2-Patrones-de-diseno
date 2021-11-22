@@ -18,4 +18,5 @@ interface Notificacion {
     public function getColor();
     public function getPrioridad();
 
+
 }
