@@ -34,3 +34,10 @@ $notificacionInterna->setColor("#000123");
 $notificacionInterna->setEstado("Activa");
 echo "Notificacion interna sin decorar<br>";
 echo $notificacionInterna->mostrar(); 
+
+$notificacionExterna = new NotificacionExterna();
+$notificacionExterna->setIP("200.130.20.152");
+$notificacionExterna->setSO("Android 10.1");
+$notificacionExterna->setFecha("12-11-2021");
+echo "Notificacion externa<br>";
+echo $notificacionExterna->mostrar(); 
