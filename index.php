@@ -61,7 +61,8 @@ $notificacionExterna->setEstado("Activa");
 
 $notificacionExterna->setIP("200.130.20.152");
 $notificacionExterna->setSO("Android 10.1");
-$notificacionExterna->setFecha("12-11-2021");
+$notificacionExterna->setFecha("23-11-2021");
 echo "Notificacion externa sin decorar<br>";
 echo $notificacionExterna->mostrar(); 
 echo "<br><br>";
+
