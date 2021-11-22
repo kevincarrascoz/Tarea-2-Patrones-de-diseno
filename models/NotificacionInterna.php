@@ -75,14 +75,18 @@ class NotificacionInterna implements Notificacion {
         return $this->estado;
     }
 
-    public function mostrar() {
-        return json_encode(array(
+    public function mostrar2() {
+        return array(
             "titulo" => $this->getTitulo(),
             "descripcion" => $this->getDescripcion(),
             "prioridad" => $this->getPrioridad(),
             "duracion" => $this->getDuracion(),
             "color" => $this->getColor(),
             "estado" => $this->getEstado()
-        ));
+        );
+    }
+
+    public function mostrar() {
+        return json_encode($this->mostrar2());
     }
 }

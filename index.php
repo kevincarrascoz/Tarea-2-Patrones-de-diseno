@@ -29,11 +29,25 @@ $notificacionInterna = new NotificacionInterna();
 $notificacionInterna->setTitulo("Notificacion Interna 1");
 $notificacionInterna->setDescripcion("Descripcion xd");
 $notificacionInterna->setPrioridad("Alta");
-$notificacionInterna->setDuracion(2.5);
+$notificacionInterna->setDuracion(1.5);
 $notificacionInterna->setColor("#000123");
 $notificacionInterna->setEstado("Activa");
-echo "Notificacion interna sin decorar<br>";
+echo "Notificacion interna 1<br>";
 echo $notificacionInterna->mostrar(); 
+
+echo "<br>";
+// ejemplo decorador con notificacion interna 1 
+$interlineadodecorador = new InterlineadoDecorador($notificacionInterna);  
+$fuentedecorador = new FuenteDecorador($interlineadodecorador);
+echo "Notificacion interna 1 decorada<br>";
+echo $fuentedecorador->mostrar();
+echo "<br><br>";
+InterlineadoDecorador::clsSetInterlineado($fuentedecorador, '3.5');
+echo "Notificacion interna 1 decorada, cambiando el interlineado";
+echo $fuentedecorador->mostrar();
+echo "<br><br><br>";
+
+
 
 $notificacionExterna = new NotificacionExterna();
 $notificacionExterna->setIP("200.130.20.152");
